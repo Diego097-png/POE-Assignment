@@ -1,3 +1,5 @@
+IMPORTANT: Please not that I accidentally saved changes using my personal GitHub account "SliverTD". This is NOT is different person and I am willing to prodivde proof if asked. Please do not assume I received help, thank you for understanding.
+
 This is a set of code for a Chat App.
 
 Over the course of doing this assignment I had to make a few major changes such as but not limited to:
