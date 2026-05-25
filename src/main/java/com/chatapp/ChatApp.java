@@ -2,6 +2,7 @@
  *
  * @author SsjTD
  */
+// ChatApp
 package com.chatapp;
 
 import java.util.Scanner;

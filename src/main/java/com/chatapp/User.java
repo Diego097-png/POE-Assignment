@@ -1,3 +1,4 @@
+//User
 package com.chatapp;
 
 public class User {

@@ -1,3 +1,4 @@
+//MessageTest
 package com.chatapp;
 
 import org.junit.jupiter.api.Test;
