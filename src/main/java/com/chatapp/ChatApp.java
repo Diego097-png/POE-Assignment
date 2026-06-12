@@ -14,6 +14,7 @@ public class ChatApp {
     public static void main(String[] args) {
         Login loginSystem = new Login();
         boolean running = true;
+
         populateInstitutionalTestData();
 
         System.out.println("=== WELCOME TO CHATAPP (PROG5121 PoE BUILD) ===");
@@ -78,6 +79,44 @@ public class ChatApp {
         dataStore.addMessageWithFlag(new Message(5, "+27838884567", "Ok, I am leaving without you."), "Stored");
     }
 
+    private static void runPart2MessagingMenu(Scanner input, Login loginSystem) {
+        System.out.println("\n==================================");
+        if (loginSystem.getRegisteredUser() != null) {
+            String firstName = loginSystem.getRegisteredUser().getFirstName();
+            String lastName = loginSystem.getRegisteredUser().getLastName();
+            System.out.println("Welcome to QuickChat, " + firstName + " " + lastName + ".");
+        } else {
+            System.out.println("Welcome to QuickChat.");
+        }
+        System.out.println("==================================");
+
+        System.out.print("How many messages would you like to capture this session? ");
+        int maxMessages = Integer.parseInt(input.nextLine());
+        int messageCounter = 0;
+
+        System.out.println("\n--- Capturing " + maxMessages + " Messages Live ---");
+        while (messageCounter < maxMessages) {
+            System.out.print("\nEnter Recipient Cell Number: ");
+            String recipient = input.nextLine();
+            System.out.print("Enter Message Content: ");
+            String content = input.nextLine();
+
+            Message tempMsg = new Message(messageCounter + 1, recipient, content);
+            String lengthCheck = tempMsg.checkMessageLength(content);
+            boolean isCellValid = loginSystem.checkCellPhoneNumber(recipient);
+
+            if (lengthCheck.equals("Message ready to send.") && isCellValid) {
+                // Instantly saves live inputs into your Part 3 data store logic engine
+                dataStore.addMessageWithFlag(tempMsg, "Sent");
+                messageCounter++;
+                System.out.println(">>> Status: " + tempMsg.SentMessage(1));
+            } else {
+                System.out.println(">>> [!] Formatting error. Message rejected.");
+                break;
+            }
+        }
+    }
+
     private static void runPart3ReportingMenu(Scanner input) {
         System.out.println("\n--- Part 3: Store Data & Display Task Report ---");
         System.out.println("a. Display sender & recipient of stored messages");
@@ -110,9 +149,5 @@ public class ChatApp {
             case "f" -> System.out.println("\n" + dataStore.generateFullReport());
             default -> System.out.println("Invalid reporting command interface action parameter.");
         }
-    }
-
-    private static void runPart2MessagingMenu(Scanner input, Login loginSystem) {
-        System.out.println("\nQuickChat Engine active session context loaded.");
     }
 }

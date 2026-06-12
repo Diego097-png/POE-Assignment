@@ -1,2 +1,3 @@
 com\chatapp\LoginTest.class
+com\chatapp\MessageDataStoreTest.class
 com\chatapp\MessageTest.class

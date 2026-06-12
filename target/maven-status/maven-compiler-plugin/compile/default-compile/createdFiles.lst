@@ -1,4 +1,5 @@
 com\chatapp\Message.class
+com\chatapp\MessageDataStore.class
 com\chatapp\ChatApp.class
 com\chatapp\User.class
 com\chatapp\Login.class
