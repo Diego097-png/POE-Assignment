@@ -13,3 +13,7 @@ Moving lines of code over due to logic issues.
 Part 2:
 
 Changes both light and major were made to all existing code to adjust for the existence of the new Message.java
+
+Part 3:
+
+Made necessary changes to account for the addition of stored message data
